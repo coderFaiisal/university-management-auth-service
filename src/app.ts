@@ -1,5 +1,5 @@
-import express, { Application } from 'express'
 import cors from 'cors'
+import express, { Application } from 'express'
 import usersRouter from './app/modules/users/users.route'
 
 const app: Application = express()
