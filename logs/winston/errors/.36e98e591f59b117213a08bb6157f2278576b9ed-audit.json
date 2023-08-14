@@ -29,6 +29,16 @@
             "date": 1691994259713,
             "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-14-08-12-error.log",
             "hash": "96972163b769452e31d176fe173c888693707c750d0e54a5e1a14f588ca4feb5"
+        },
+        {
+            "date": 1692013606852,
+            "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-14-08-17-error.log",
+            "hash": "91327f443d4e0edb5791cef3ab75c4f39a08d6e8a788e4943e494adecb9262d4"
+        },
+        {
+            "date": 1692014456291,
+            "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-14-08-18-error.log",
+            "hash": "c6a86cf22dc2966b9e82e3e6a731671e34937e7767665f6beaa7b750afee6a10"
         }
     ],
     "hashType": "sha256"

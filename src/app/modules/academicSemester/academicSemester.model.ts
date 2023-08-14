@@ -1,4 +1,6 @@
+import httpStatus from 'http-status';
 import { Schema, model } from 'mongoose';
+import ApiError from '../../../errors/ApiError';
 import {
   AcademicSemesterCodes,
   AcademicSemesterMonths,
@@ -41,6 +43,22 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   },
 );
 
+//mongoose pre hook for prevent semester repetition. pre | post hook should use before model
+academicSemesterSchema.pre('save', async function (next) {
+  const isExist = await AcademicSemester.findOne({
+    title: this.title,
+    year: this.year,
+  });
+  if (isExist) {
+    throw new ApiError(
+      httpStatus.CONFLICT,
+      'Academic semester is already exist!',
+    );
+  }
+  next();
+});
+
+//academic semester model
 export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(
   'AcademicSemester',
   academicSemesterSchema,
