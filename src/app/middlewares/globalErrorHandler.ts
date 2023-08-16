@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 import { ErrorRequestHandler } from 'express';
+import mongoose from 'mongoose';
 import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
@@ -19,17 +20,22 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   let message = 'Something went wrong!';
   let errorMessages: IGenericErrorMessage[] = [];
 
+  //check mongoose validation error
   if (error?.name === 'ValidationError') {
     const simplifiedError = handleValidationError(error);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
-  } else if (error instanceof ZodError) {
+  }
+  //check zod error
+  else if (error instanceof ZodError) {
     const simplifiedError = handleZodError(error);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
-  } else if (error instanceof ApiError) {
+  }
+  // check custom ApiError
+  else if (error instanceof ApiError) {
     statusCode = error?.statusCode;
     message = error?.message;
     errorMessages = error?.message
@@ -40,7 +46,9 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
           },
         ]
       : [];
-  } else if (error instanceof Error) {
+  }
+  //check express dafault error
+  else if (error instanceof Error) {
     message = error?.message;
     errorMessages = error?.message
       ? [
@@ -50,6 +58,10 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
           },
         ]
       : [];
+  }
+  //check mongoose cast error
+  else if (error instanceof mongoose.Error.CastError) {
+    console.log('cast error detected');
   }
   res.status(statusCode).json({
     success: false,
