@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 import { ErrorRequestHandler } from 'express';
-import mongoose from 'mongoose';
 import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
+import handleCastError from '../../errors/handleCastError';
 import handleValidationError from '../../errors/handleValidationError';
 import handleZodError from '../../errors/handleZodError';
 import { IGenericErrorMessage } from '../../interfaces/error';
@@ -34,6 +36,14 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
   }
+  //check mongoose cast error
+  else if (error?.name === 'CastError') {
+    const simplifiedError = handleCastError(error);
+    statusCode = simplifiedError.statusCode;
+    message = simplifiedError.message;
+    errorMessages = simplifiedError.errorMessages;
+  }
+
   // check custom ApiError
   else if (error instanceof ApiError) {
     statusCode = error?.statusCode;
@@ -59,18 +69,12 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
         ]
       : [];
   }
-  //check mongoose cast error
-  else if (error instanceof mongoose.Error.CastError) {
-    console.log('cast error detected');
-  }
   res.status(statusCode).json({
     success: false,
     message,
     errorMessages,
     stack: config.env !== 'production' ? error?.stack : undefined,
   });
-
-  next();
 };
 
 export default globalErrorHandler;

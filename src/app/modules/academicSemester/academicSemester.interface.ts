@@ -18,10 +18,23 @@ export type IAcademicSemesterMonths =
 
 export type IAcademicSemester = {
   title: IAcademicSemesterTitles;
-  year: number;
+  year: string;
   code: IAcademicSemesterCodes;
   startMonth: IAcademicSemesterMonths;
   endMonth: IAcademicSemesterMonths;
 };
 
 export type AcademicSemesterModel = Model<IAcademicSemester>;
+
+export type IPaginationFilters = {
+  searchTerm?: string;
+};
+
+export const academicSemesterSearchableFields = ['title', 'code', 'year'];
+
+export const academicSemesterFilterableFields = [
+  'searchTerm',
+  'title',
+  'code',
+  'year',
+];
