@@ -6,7 +6,10 @@ import {
   IAcademicFaculty,
 } from './academicFaculty.interface';
 
-const academicFacultySchema = new Schema<IAcademicFaculty>(
+const academicFacultySchema = new Schema<
+  IAcademicFaculty,
+  AcademicFacultyModel
+>(
   {
     title: {
       type: String,
@@ -15,6 +18,9 @@ const academicFacultySchema = new Schema<IAcademicFaculty>(
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   },
 );
 

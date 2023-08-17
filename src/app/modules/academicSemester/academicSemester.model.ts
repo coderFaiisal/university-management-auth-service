@@ -11,7 +11,10 @@ import {
   IAcademicSemester,
 } from './academicSemester.interface';
 
-const academicSemesterSchema = new Schema<IAcademicSemester>(
+const academicSemesterSchema = new Schema<
+  IAcademicSemester,
+  AcademicSemesterModel
+>(
   {
     title: {
       type: String,
@@ -40,6 +43,9 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
   },
 );
 

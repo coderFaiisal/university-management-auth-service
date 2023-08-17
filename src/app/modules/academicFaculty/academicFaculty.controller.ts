@@ -4,10 +4,8 @@ import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
 import { paginationFields } from '../../constants/pagination';
-import {
-  IAcademicFaculty,
-  academicFacultyFilterableFields,
-} from './academicFaculty.interface';
+import { academicFacultyFilterableFields } from './academicFaculty.constants';
+import { IAcademicFaculty } from './academicFaculty.interface';
 import { AcademicFacultyService } from './academicFaculty.service';
 
 const createFaculty = catchAsync(async (req: Request, res: Response) => {
@@ -33,7 +31,7 @@ const getAllFaculties = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IAcademicFaculty[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic faculties recieved successfully',
+    message: 'Academic faculties received successfully',
     meta: result.meta,
     data: result.data,
   });
@@ -45,15 +43,15 @@ const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Faculty recieved successfully',
+    message: 'Faculty received successfully',
     data: result,
   });
 });
 
 const updateFaculty = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const facultyData = req.body;
-  const result = await AcademicFacultyService.updateFaculty(id, facultyData);
+  const updatedData = req.body;
+  const result = await AcademicFacultyService.updateFaculty(id, updatedData);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
