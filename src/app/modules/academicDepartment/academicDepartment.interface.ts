@@ -1,6 +1,10 @@
 import { Model, Types } from 'mongoose';
 import { IAcademicFaculty } from '../academicFaculty/academicFaculty.interface';
 
+export type IPaginationFilters = {
+  searchTerm?: string;
+};
+
 export type IAcademicDepartment = {
   title: string;
   academicFaculty: Types.ObjectId | IAcademicFaculty;

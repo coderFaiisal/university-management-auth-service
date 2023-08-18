@@ -44,6 +44,8 @@ const getAllFaculties = async (
     });
   }
 
+  const whereConditions = andConditions.length > 0 ? andConditions : {};
+
   //pagination logic
   const { page, limit, skip, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOptions);
@@ -53,8 +55,6 @@ const getAllFaculties = async (
   if (sortBy && sortOrder) {
     sortConditions[sortBy] = sortOrder;
   }
-
-  const whereConditions = andConditions.length > 0 ? andConditions : {};
 
   const result = await AcademicFaculty.find(whereConditions)
     .sort(sortConditions)
