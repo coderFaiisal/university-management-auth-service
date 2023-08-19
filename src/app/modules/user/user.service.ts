@@ -1,25 +1,24 @@
 import config from '../../../config';
+import { IStudent } from '../student/student.interface';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateUserId } from './user.utils';
 
-const createUser = async (user: IUser): Promise<IUser | null> => {
-  //auto generated incremental id
-  const id = await generateUserId();
-  user.id = id;
-
+const createStudent = async (
+  student: IStudent,
+  user: IUser,
+): Promise<IUser | null> => {
   //default password
   if (!user.password) {
-    user.password = config.default_user_pass as string;
+    user.password = config.default_student_pass as string;
   }
 
-  const createdUser = await User.create(user);
-  if (!createdUser) {
-    throw new Error('Failed to create user');
+  const createdStudent = await User.create(user);
+  if (!createdStudent) {
+    throw new Error('Failed to create student');
   }
-  return createdUser;
+  return createdStudent;
 };
 
 export const UserService = {
-  createUser,
+  createStudent,
 };
