@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { bloodGroup, gender } from '../student/student.constants';
+import { bloodGroup, gender } from '../student/student.constant';
 
 //req validation
 const createStudentZodSchema = z.object({

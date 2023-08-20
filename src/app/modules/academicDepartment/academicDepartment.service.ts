@@ -2,7 +2,7 @@ import { SortOrder } from 'mongoose';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { AcademicDepartmentSearchableFields } from './academicDepartment.constants';
+import { AcademicDepartmentSearchableFields } from './academicDepartment.constant';
 import {
   IAcademicDepartment,
   IPaginationFilters,

@@ -4,7 +4,7 @@ import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
 import { paginationFields } from '../../constants/pagination';
-import { studentFilterableFields } from './student.constants';
+import { studentFilterableFields } from './student.constant';
 import { IStudent } from './student.interface';
 import { StudentService } from './student.service';
 

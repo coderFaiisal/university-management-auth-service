@@ -4,7 +4,7 @@ import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
 import { paginationFields } from '../../constants/pagination';
-import { AcademicDepartmentFilterableFields } from './academicDepartment.constants';
+import { AcademicDepartmentFilterableFields } from './academicDepartment.constant';
 import { IAcademicDepartment } from './academicDepartment.interface';
 import { AcademicDepartmentService } from './academicDepartment.service';
 
