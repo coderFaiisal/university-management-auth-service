@@ -4,7 +4,6 @@ import { StudentController } from './student.controller';
 import { StudentValidaion } from './student.validation';
 
 const router = express.Router();
-
 router.get('/:id', StudentController.getSingleStudent);
 router.get('/getAllStudents', StudentController.getAllStudents);
 router.patch(
