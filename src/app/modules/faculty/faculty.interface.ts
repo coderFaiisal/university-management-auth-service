@@ -5,7 +5,7 @@ import { IAcademicFaculty } from '../academicFaculty/academicFaculty.interface';
 export type UserName = {
   firstName: string;
   lastName: string;
-  middleName: string;
+  middleName?: string;
 };
 
 export type IFaculty = {
@@ -17,8 +17,8 @@ export type IFaculty = {
   contactNo: string;
   emergencyContactNo: string;
   gender?: 'male' | 'female';
-  permanentAddress?: string;
-  presentAddress?: string;
+  permanentAddress: string;
+  presentAddress: string;
   bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
 
   academicDepartment: Types.ObjectId | IAcademicDepartment;
