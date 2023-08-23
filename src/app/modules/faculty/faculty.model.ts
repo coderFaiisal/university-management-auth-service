@@ -1,4 +1,6 @@
 import { Schema, Types, model } from 'mongoose';
+import { bloodGroup } from '../../constant/bloodGroup';
+import { gender } from '../../constant/gender';
 import { FacultyModel, IFaculty } from './faculty.interface';
 
 const FacultySchema = new Schema<IFaculty, FacultyModel>(
@@ -30,11 +32,11 @@ const FacultySchema = new Schema<IFaculty, FacultyModel>(
     },
     gender: {
       type: String,
-      enum: ['male', 'female'],
+      enum: gender,
     },
     bloodGroup: {
       type: String,
-      enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+      enum: bloodGroup,
     },
     email: {
       type: String,

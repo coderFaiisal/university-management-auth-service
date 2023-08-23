@@ -15,6 +15,8 @@ router.post(
 
 router.get('/:id', ManagementDepartmentController.getSingleDepartment);
 
+router.get('/', ManagementDepartmentController.getAllDepartments);
+
 router.patch(
   '/:id',
   validateRequest(
@@ -24,7 +26,5 @@ router.patch(
 );
 
 router.delete('/:id', ManagementDepartmentController.deleteDepartment);
-
-router.get('/', ManagementDepartmentController.getAllDepartments);
 
 export const ManagementDepartmentRoutes = router;

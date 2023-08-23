@@ -48,6 +48,7 @@ const updateAdmin = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
 const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
 
