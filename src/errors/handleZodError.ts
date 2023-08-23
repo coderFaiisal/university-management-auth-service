@@ -1,3 +1,4 @@
+import httpStatus from 'http-status';
 import { ZodError, ZodIssue } from 'zod';
 import { IGenericErrorResponse } from '../interfaces/common';
 import { IGenericErrorMessage } from '../interfaces/error';
@@ -11,7 +12,7 @@ const handleZodError = (error: ZodError): IGenericErrorResponse => {
       };
     },
   );
-  const statusCode = 400;
+  const statusCode = httpStatus.BAD_REQUEST;
   return {
     statusCode,
     message: 'Validation Error',

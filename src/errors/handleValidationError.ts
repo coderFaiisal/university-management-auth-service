@@ -1,3 +1,4 @@
+import httpStatus from 'http-status';
 import mongoose from 'mongoose';
 import { IGenericErrorResponse } from '../interfaces/common';
 import { IGenericErrorMessage } from '../interfaces/error';
@@ -13,7 +14,7 @@ const handleValidationError = (
       };
     },
   );
-  const statusCode = 400;
+  const statusCode = httpStatus.BAD_REQUEST;
   return {
     statusCode,
     message: 'Validation Error',

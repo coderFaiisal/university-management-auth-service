@@ -164,6 +164,11 @@
             "date": 1692637268212,
             "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-21-08-23-error.log",
             "hash": "859987583d456e396d3507c2530eda43598af8e7f982f9f018c0d3867d815a36"
+        },
+        {
+            "date": 1692640926563,
+            "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-22-08-00-error.log",
+            "hash": "2e4b9632a94da65b682a91507acac2fc3b2a305c9bb862e5c9e8e1d264bba432"
         }
     ],
     "hashType": "sha256"
