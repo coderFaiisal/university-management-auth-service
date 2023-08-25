@@ -15,16 +15,16 @@ const auth =
         throw new ApiError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
       }
 
-      let varifiedUser = null;
-      try {
-        varifiedUser = jwtHelper.verifyToken(
-          token,
-          config.jwt.secret as Secret,
-        );
-      } catch (error) {
-        throw new ApiError(httpStatus.FORBIDDEN, 'Invalid Token!');
+      const varifiedUser = jwtHelper.verifyToken(
+        token,
+        config.jwt.secret as Secret,
+      );
+
+      req.user = varifiedUser;
+
+      if (requiredRoles.length && !requiredRoles.includes(varifiedUser.role)) {
+        throw new ApiError(httpStatus.FORBIDDEN, 'Forbidden Access');
       }
-      console.log(varifiedUser, requiredRoles);
 
       next();
     } catch (error) {
