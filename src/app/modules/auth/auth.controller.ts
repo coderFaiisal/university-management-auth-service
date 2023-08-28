@@ -22,7 +22,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IUserResponse>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'User loging successfully',
+    message: 'User logged in successfully',
     data: others,
   });
 });
