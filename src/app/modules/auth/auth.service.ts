@@ -73,6 +73,7 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
 
   const { userId } = verifiedToken;
 
+  //check user
   const isUserExist = await User.isUserExist(userId);
 
   if (!isUserExist) {
