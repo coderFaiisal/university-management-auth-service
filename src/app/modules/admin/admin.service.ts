@@ -53,7 +53,7 @@ const getAllAdmins = async (
     .skip(skip)
     .limit(limit);
 
-  const total = await Admin.countDocuments(whereConditions);
+  const total = await Admin.countDocuments();
 
   return {
     meta: {
