@@ -31,6 +31,9 @@ export type AcademicSemesterModel = Model<
 
 export type IPaginationFilters = {
   searchTerm?: string;
+  title?: string;
+  code?: string;
+  year?: string;
 };
 
 export const academicSemesterSearchableFields = ['title', 'code', 'year'];
