@@ -8,16 +8,6 @@ import { FacultyValidation } from './faculty.validations';
 const router = express.Router();
 
 router.get(
-  '/:id',
-  auth(
-    ENUM_USER_ROLE.SUPER_ADMIN,
-    ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.FACULTY,
-  ),
-  FacultyController.getSingleFaculty,
-);
-
-router.get(
   '/',
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,
@@ -25,6 +15,16 @@ router.get(
     ENUM_USER_ROLE.FACULTY,
   ),
   FacultyController.getAllFaculties,
+);
+
+router.get(
+  '/:id',
+  auth(
+    ENUM_USER_ROLE.SUPER_ADMIN,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+  ),
+  FacultyController.getSingleFaculty,
 );
 
 router.patch(

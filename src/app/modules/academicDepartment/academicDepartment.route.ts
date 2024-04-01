@@ -8,7 +8,7 @@ import { AcademicDepartmentValidation } from './academicDepartment.validation';
 const router = express.Router();
 
 router.post(
-  '/create-department',
+  '/',
   validateRequest(
     AcademicDepartmentValidation.createAcademicDepartmentZodSchema,
   ),

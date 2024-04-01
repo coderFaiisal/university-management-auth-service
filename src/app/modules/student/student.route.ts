@@ -8,17 +8,6 @@ import { StudentValidaion } from './student.validation';
 const router = express.Router();
 
 router.get(
-  '/:id',
-  auth(
-    ENUM_USER_ROLE.SUPER_ADMIN,
-    ENUM_USER_ROLE.ADMIN,
-    ENUM_USER_ROLE.FACULTY,
-    ENUM_USER_ROLE.STUDENT,
-  ),
-  StudentController.getSingleStudent,
-);
-
-router.get(
   '/',
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,
@@ -27,6 +16,17 @@ router.get(
     ENUM_USER_ROLE.STUDENT,
   ),
   StudentController.getAllStudents,
+);
+
+router.get(
+  '/:id',
+  auth(
+    ENUM_USER_ROLE.SUPER_ADMIN,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT,
+  ),
+  StudentController.getSingleStudent,
 );
 
 router.patch(

@@ -1,15 +1,25 @@
 {
-  "keep": {
-    "days": true,
-    "amount": 14
-  },
-  "auditLog": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\.36e98e591f59b117213a08bb6157f2278576b9ed-audit.json",
-  "files": [
-    {
-      "date": 1693993995759,
-      "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-06-09-15-error.log",
-      "hash": "e443e4baeffdb84dba96e0ed77037011e9112f689f8c74b492edf5a9def71007"
-    }
-  ],
-  "hashType": "sha256"
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\.36e98e591f59b117213a08bb6157f2278576b9ed-audit.json",
+    "files": [
+        {
+            "date": 1711889894742,
+            "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2024-31-03-18-error.log",
+            "hash": "39cf8afe8cdb829d891b952c3f5dfe734382f9d2a5d75f8c6720e6e56591f655"
+        },
+        {
+            "date": 1711890880191,
+            "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2024-31-03-19-error.log",
+            "hash": "2d2b930b4ad7097af6dc810be342e97ac4d18b57eff881287431d9d2b870022b"
+        },
+        {
+            "date": 1711966044366,
+            "name": "D:\\Next Level Development\\Course\\Milestone_03\\university-management-auth-service\\logs\\winston\\errors\\phu-2024-01-04-16-error.log",
+            "hash": "20e260b9eace5e447672fef9455801b1ead3f5fc7d898acde968276eb8b8fda3"
+        }
+    ],
+    "hashType": "sha256"
 }

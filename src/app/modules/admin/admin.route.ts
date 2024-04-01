@@ -7,15 +7,15 @@ import { AdminValidation } from './admin.validation';
 const router = express.Router();
 
 router.get(
-  '/:id',
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-  AdminController.getSingleAdmin,
-);
-
-router.get(
   '/',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   AdminController.getAllAdmins,
+);
+
+router.get(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  AdminController.getSingleAdmin,
 );
 
 router.patch(
